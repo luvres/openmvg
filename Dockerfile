@@ -29,7 +29,7 @@ RUN \
 		libxi-dev \
 		libxrandr-dev \
 		graphviz \
-		libcgal-qt5-dev
+		libcgal-qt5-dev \
     \
       # VCGLib (Required)
 	&& git clone https://github.com/cdcseacave/VCG.git vcglib \
