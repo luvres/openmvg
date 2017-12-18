@@ -11,8 +11,6 @@ docker pull izone/openmvg
 mkdir $HOME/openmvg
 ```
 ```
-```
-```
 docker run -ti --rm --name OpenMVG \
 --net=host \
 -e DISPLAY=unix$DISPLAY \
