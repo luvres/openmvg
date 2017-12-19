@@ -30,6 +30,7 @@ RUN \
 		libxrandr-dev \
 		graphviz \
 		libcgal-qt5-dev \
+	&& cd \
     \
       # VCGLib (Required)
 	&& git clone https://github.com/cdcseacave/VCG.git vcglib \
@@ -72,7 +73,6 @@ RUN \
 	&& cmake . ../openMVS \
 		-DCMAKE_BUILD_TYPE=Release \
 		-DVCG_DIR="~/vcglib" \
-    \
 	&& make -j$(nproc) \
 	&& make install \
 	&& cd .. \
@@ -89,3 +89,4 @@ RUN \
 		-DBUILD_GUI_PREVIEW=OFF \
 	&& make -j$(nproc) \
 	&& make install
+
