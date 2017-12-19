@@ -91,3 +91,8 @@ RUN \
 	&& make -j$(nproc) \
 	&& make install
 
+
+#ln -s /root/openMVG_build/openMVG_install/bin/openMVG_SfM_gui /usr/bin/openmvg
+
+
+
