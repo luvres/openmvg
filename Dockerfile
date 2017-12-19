@@ -5,7 +5,7 @@ MAINTAINER Leonardo Loures <luvres@hotmail.com>
 # https://github.com/open-anatomy/SfM_gui_for_openMVG/blob/master/BUILD_UBUNTU_16_04.md
 
 RUN \
-      # Prepare and empty machine for building:
+  # Prepare and empty machine for building:
 	apt-get update \
 	&& apt-get install -y \
 		git \
@@ -31,11 +31,11 @@ RUN \
 		graphviz \
 		libcgal-qt5-dev \
 	&& cd \
-    \
-      # VCGLib (Required)
+  \
+  # VCGLib (Required)
 	&& git clone https://github.com/cdcseacave/VCG.git vcglib \
-    \
-      # Eigen (Required)
+  \
+  # Eigen (Required)
 	&& hg clone https://bitbucket.org/eigen/eigen#3.2 \
 	&& mkdir eigen_build \
 	&& cd eigen_build \
@@ -43,8 +43,8 @@ RUN \
 	&& make -j$(nproc) \
 	&& make install \
 	&& cd .. \
-    \
-      # Ceres (Required)
+  \
+  # Ceres (Required)
 	&& git clone https://ceres-solver.googlesource.com/ceres-solver ceres-solver \
 	&& mkdir ceres_build \
 	&& cd ceres_build/ \
@@ -52,12 +52,12 @@ RUN \
 		-DMINIGLOG=ON \
 		-DBUILD_TESTING=OFF \
 		-DBUILD_EXAMPLES=OFF \
-    \
+  \
 	&& make -j$(nproc) \
 	&& make install \
 	&& cd .. \
-    \
-      # CMVS / PMVS (Optional)
+  \
+  # CMVS / PMVS (Optional)
 	&& git clone https://github.com/open-anatomy/CMVS-PMVS.git \
 	&& mkdir CMVS-PMVS_build \
 	&& cd CMVS-PMVS_build \
@@ -65,8 +65,8 @@ RUN \
 	&& make \
 	&& make install \
 	&& cd .. \
-    \
-      # OpenMVS (Recommended)
+  \
+  # OpenMVS (Recommended)
 	&& git clone https://github.com/open-anatomy/openMVS.git openMVS \
 	&& mkdir openMVS_build \
 	&& cd openMVS_build \
@@ -76,8 +76,8 @@ RUN \
 	&& make -j$(nproc) \
 	&& make install \
 	&& cd .. \
-    \
-      # OpenMVG + GUI (Required)
+  \
+  # OpenMVG + GUI (Required)
 	&& git clone --recursive https://github.com/open-anatomy/SfM_gui_for_openMVG.git openMVG \
 	&& mkdir openMVG_build \
 	&& cd openMVG_build \
