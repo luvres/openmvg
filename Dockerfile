@@ -30,21 +30,22 @@ RUN \
 		libxrandr-dev \
 		graphviz \
 		libcgal-qt5-dev \
-	&& cd \
   \
   # VCGLib (Required)
+	&& cd \
 	&& git clone https://github.com/cdcseacave/VCG.git vcglib \
   \
   # Eigen (Required)
+	&& cd \
 	&& hg clone https://bitbucket.org/eigen/eigen#3.2 \
 	&& mkdir eigen_build \
 	&& cd eigen_build \
 	&& cmake . ../eigen \
 	&& make -j$(nproc) \
 	&& make install \
-	&& cd .. \
   \
   # Ceres (Required)
+	&& cd \
 	&& git clone https://ceres-solver.googlesource.com/ceres-solver ceres-solver \
 	&& mkdir ceres_build \
 	&& cd ceres_build/ \
@@ -55,18 +56,18 @@ RUN \
   \
 	&& make -j$(nproc) \
 	&& make install \
-	&& cd .. \
   \
   # CMVS / PMVS (Optional)
+	&& cd \
 	&& git clone https://github.com/open-anatomy/CMVS-PMVS.git \
 	&& mkdir CMVS-PMVS_build \
 	&& cd CMVS-PMVS_build \
 	&& cmake ../CMVS-PMVS/program \
 	&& make \
 	&& make install \
-	&& cd .. \
   \
   # OpenMVS (Recommended)
+	&& cd \
 	&& git clone https://github.com/open-anatomy/openMVS.git openMVS \
 	&& mkdir openMVS_build \
 	&& cd openMVS_build \
@@ -75,9 +76,9 @@ RUN \
 		-DVCG_DIR="~/vcglib" \
 	&& make -j$(nproc) \
 	&& make install \
-	&& cd .. \
   \
   # OpenMVG + GUI (Required)
+	&& cd \
 	&& git clone --recursive https://github.com/open-anatomy/SfM_gui_for_openMVG.git openMVG \
 	&& mkdir openMVG_build \
 	&& cd openMVG_build \
