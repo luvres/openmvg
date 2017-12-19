@@ -40,9 +40,11 @@ RUN \
 	&& hg clone https://bitbucket.org/eigen/eigen#3.2 \
 	&& mkdir eigen_build \
 	&& cd eigen_build \
-	&& cmake . ../eigen \
+	&& cmake ../eigen \
 	&& make -j$(nproc) \
 	&& make install \
+  # Clean
+	&& cd && rm eigen* -fR \
   \
   # Ceres (Required)
 	&& cd \
@@ -89,10 +91,9 @@ RUN \
 		-DOPENMVG_PMVS_PATH=$HOME/CMVS-PMVS_build \
 		-DBUILD_GUI_PREVIEW=OFF \
 	&& make -j$(nproc) \
-	&& make install
-
-
-#ln -s /root/openMVG_build/openMVG_install/bin/openMVG_SfM_gui /usr/bin/openmvg
+	&& make install \
+  \
+	&& ln -s /root/openMVG_build/openMVG_install/bin/openMVG_SfM_gui /usr/bin/openmvg
 
 
 
